@@ -1,0 +1,32 @@
+seed: 0 # Set the random seed for reproducibility
+
+## Taichi configuration parameters
+taichi:
+  arch: cpu # cpu, cuda (optional but recommended; only if you have a CUDA-enabled GPU)
+  init:
+    device_memory_GB: 16.0 # If using CUDA, set device_memory_GB to the amount of GPU memory you want to allocate to Taichi (probably should use ~100% of the available memory)
+    debug: False # Unless you are modifying the simulator (highly unlikely), leave this as False
+
+## Simulator configuration parameters
+# The ONLY values that you should need to change are: n_sims, learning_steps
+# Use n_sims to set the number of robots to run in parallel.
+# Use sim_steps to set the number of simulation steps to run for each robot. The default probably does not need to be changed. 
+simulator:
+  n_sims: 16
+  sim_steps: 1000
+  learning_steps: 40
+  dt: 3e-3
+  eps: 1e-5
+  springA: 0.1
+  springK: 15000.0
+  ground_height: 0.02
+  gravity: 10.0
+  friction: 0.9
+  restitution: 0.1
+  drag_damping: 10.0
+  nn_hidden_size: 128
+  nn_cpg_count: 6
+  cpg_omega: 15.0
+  adam_beta1: 0.9
+  adam_beta2: 0.999
+  learning_rate: 7e-3
